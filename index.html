@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pranav Raj Choudhary's professional portfolio and resume. A full-stack developer with expertise in React, Next.js, Node.js, and MongoDB.">
+    <meta name="author" content="Pranav Raj Choudhary">
+    <meta property="og:title" content="Pranav Raj Choudhary - Full-Stack Developer">
+    <meta property="og:description" content="Pranav's online portfolio showcasing projects, skills, and experience in modern web development.">
+    <meta property="og:url" content="https://pranavrajchoudhary.github.io">
+    <title>Pranav Raj Choudhary</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👨‍💻%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2eDR0y9L+3kL+tM+jXQ+5/9/A+8+wA+7/D/Y+oQ+x/d/h/v/g/A/w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-light: #f4f4f4;
+            --card-dark: rgba(255, 255, 255, 0.05);
+            --card-light: rgba(0, 0, 0, 0.05);
+            --text-dark: #f0f0f0;
+            --text-light: #1a1a1a;
+            --secondary-dark: #a0a0a0;
+            --secondary-light: #505050;
+            --border-dark: rgba(255, 255, 255, 0.1);
+            --border-light: rgba(0, 0, 0, 0.1);
+            --accent-dark: #8c8c8c;
+            --accent-light: #4a4a4a;
+            --shadow-dark: rgba(0, 0, 0, 0.4);
+            --shadow-light: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-bs-theme="dark"] {
+            --bs-body-bg: var(--bg-dark);
+            --bs-body-color: var(--text-dark);
+            --bs-navbar-bg: rgba(18, 18, 18, 0.7);
+            --bs-navbar-color: var(--text-dark);
+            --bs-navbar-active-color: var(--text-dark);
+            --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(240, 240, 240)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            --bs-link-color: var(--accent-dark);
+            --bs-link-hover-color: var(--text-dark);
+        }
+
+        [data-bs-theme="light"] {
+            --bs-body-bg: var(--bg-light);
+            --bs-body-color: var(--text-light);
+            --bs-navbar-bg: rgba(244, 244, 244, 0.7);
+            --bs-navbar-color: var(--text-light);
+            --bs-navbar-active-color: var(--text-light);
+            --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(26, 26, 26)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            --bs-link-color: var(--accent-light);
+            --bs-link-hover-color: var(--text-light);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: background-color 0.3s;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+            color: var(--bs-body-color) !important;
+        }
+
+        .card-custom {
+            background-color: var(--card-light);
+            border: 1px solid var(--border-light);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        [data-bs-theme="dark"] .card-custom {
+            background-color: var(--card-dark);
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 4px 12px var(--shadow-dark);
+        }
+
+        .card-custom:hover {
+            transform: translateY(-5px);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        .skills-chip {
+            display: inline-block;
+            background-color: var(--secondary-light);
+            color: var(--bg-light);
+            border-radius: 50px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+            margin: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        [data-bs-theme="dark"] .skills-chip {
+            background-color: var(--secondary-dark);
+            color: var(--bg-dark);
+        }
+
+        .skills-chip:hover, .skills-chip.active {
+            background-color: var(--accent-light);
+            color: var(--bg-light);
+        }
+
+        [data-bs-theme="dark"] .skills-chip:hover, [data-bs-theme="dark"] .skills-chip.active {
+            background-color: var(--accent-dark);
+            color: var(--bg-dark);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--border-light);
+        }
+        
+        [data-bs-theme="dark"] .timeline-item::before {
+            background-color: var(--border-dark);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0rem;
+            top: 0.5rem;
+            height: 1rem;
+            width: 1rem;
+            border-radius: 50%;
+            background-color: var(--accent-light);
+            border: 3px solid var(--bg-light);
+            z-index: 1;
+        }
+
+        [data-bs-theme="dark"] .timeline-item::after {
+            background-color: var(--accent-dark);
+            border: 3px solid var(--bg-dark);
+        }
+
+        .btn-link {
+            text-decoration: none;
+            color: var(--bs-body-color);
+        }
+
+        .btn-link:hover {
+            color: var(--bs-body-color);
+            text-decoration: underline;
+        }
+
+        .project-tag {
+            background-color: var(--secondary-light);
+            color: var(--bg-light);
+            border-radius: 50px;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+        }
+        
+        [data-bs-theme="dark"] .project-tag {
+            background-color: var(--secondary-dark);
+            color: var(--bg-dark);
+        }
+
+        .cta-button {
+            border: 1px solid var(--accent-light);
+            color: var(--accent-light);
+            background: none;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-light);
+            color: var(--bg-light);
+        }
+
+        [data-bs-theme="dark"] .cta-button {
+            border: 1px solid var(--accent-dark);
+            color: var(--accent-dark);
+        }
+
+        [data-bs-theme="dark"] .cta-button:hover {
+            background-color: var(--accent-dark);
+            color: var(--bg-dark);
+        }
+        
+        .toast-container {
+            position: fixed;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1050;
+        }
+
+        .disabled-link {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .disabled-link:hover {
+            background-color: transparent !important;
+            color: var(--accent-light) !important;
+        }
+
+        [data-bs-theme="dark"] .disabled-link:hover {
+            color: var(--accent-dark) !important;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: var(--bs-navbar-bg);
+                padding: 1rem;
+                border-radius: 0 0 10px 10px;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+        }
+        
+        @media (prefers-reduced-motion) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        @media print {
+            body {
+                background-color: white !important;
+                color: black !important;
+            }
+            .navbar, .hero .btn, .project-filters, .toast-container, .disabled-link {
+                display: none !important;
+            }
+            .card-custom, .skills-chip, .project-tag {
+                background-color: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                color: black !important;
+            }
+            .skills-chip, .project-tag {
+                border-radius: 0 !important;
+                display: block;
+                margin: 0.25rem 0 !important;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                color: black !important;
+            }
+            .container-fluid {
+                padding: 0 !important;
+            }
+            .section-padding {
+                padding: 1rem 0 !important;
+            }
+            .timeline-item::after, .timeline-item::before {
+                background-color: black !important;
+            }
+            a {
+                color: black !important;
+                text-decoration: underline !important;
+            }
+        }
+    </style>
+</head>
+<body data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Pranav</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievements">Achievements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center ms-lg-3">
+                        <button class="btn btn-link nav-link" id="theme-toggle" aria-label="Toggle dark and light theme" aria-pressed="false" title="Toggle Theme">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="hero" class="section-padding">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h1 class="display-3 fw-bold">Pranav Raj Choudhary</h1>
+                    <p class="lead text-muted">Full-Stack Developer</p>
+                    <p class="mt-4 mb-4">Motivated full-stack developer with a proven ability to build and deploy responsive web applications using React, Next.js, and Node.js. Eager to contribute to dynamic development teams by applying expertise in modern web technologies and scalable architecture.</p>
+                    <div class="d-flex justify-content-center flex-wrap gap-3">
+                        <button class="btn cta-button rounded-pill" onclick="copyEmailToClipboard()">
+                            <i class="fas fa-envelope me-2"></i>Email
+                        </button>
+                        <a href="https://github.com/pranavrajchoudhary" class="btn cta-button rounded-pill" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github me-2"></i>GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/pranav-choudhary-97a917242/" class="btn cta-button rounded-pill" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin me-2"></i>LinkedIn
+                        </a>
+                        <button class="btn cta-button rounded-pill" onclick="window.print()">
+                            <i class="fas fa-download me-2"></i>Download PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-padding">
+            <h2 class="text-center mb-5">Skills</h2>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card-custom p-4 h-100">
+                        <h3 class="h5">Core Technologies</h3>
+                        <div class="mt-3">
+                            <span class="skills-chip">HTML5</span>
+                            <span class="skills-chip">CSS3</span>
+                            <span class="skills-chip">JavaScript</span>
+                            <span class="skills-chip">React.js</span>
+                            <span class="skills-chip">Next.js</span>
+                            <span class="skills-chip">Node.js</span>
+                            <span class="skills-chip">Express.js</span>
+                            <span class="skills-chip">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card-custom p-4 h-100">
+                        <h3 class="h5">Databases & Tools</h3>
+                        <div class="mt-3">
+                            <span class="skills-chip">MongoDB</span>
+                            <span class="skills-chip">MySQL</span>
+                            <span class="skills-chip">Git & GitHub</span>
+                            <span class="skills-chip">Passport.js</span>
+                            <span class="skills-chip">JWT</span>
+                            <span class="skills-chip">UI/UX Understanding</span>
+                            <span class="skills-chip">Agile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section-padding">
+            <h2 class="text-center mb-5">Experience</h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="timeline-item">
+                        <h3 class="h5 fw-bold">Web Developer Associate Intern <small class="text-muted fw-normal">| Infotact Solutions</small></h3>
+                        <p class="text-muted fst-italic">July 2025 – Sep 2025</p>
+                        <ul class="list-unstyled">
+                            <li>Selected for a remote internship focused on building live projects using web technologies.</li>
+                            <li>Will contribute to frontend/backend tasks including UI design and API integration using **React.js, Node.js, Express, MongoDB Atlas**.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="h5 fw-bold">Founder-led Product <small class="text-muted fw-normal">| The Keyz Chain – Student Dev Platform</small></h3>
+                        <p class="text-muted fst-italic">Oct 2024 – Present</p>
+                        <ul class="list-unstyled">
+                            <li>Conceptualized and built a collaborative platform for college students to team up for projects and competitions.</li>
+                            <li>Designed and deployed a responsive interface for student registration, interest mapping, and team matching.</li>
+                            <li>Integrated tutorial video modules and live event updates, leading the technical stack with **HTML5, CSS3, JavaScript, Firebase, and Google Apps Script**.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section-padding">
+            <h2 class="text-center mb-5">Projects</h2>
+            <div class="d-flex flex-wrap justify-content-center mb-4 project-filters">
+                <span class="skills-chip active" data-filter="all">All</span>
+                <span class="skills-chip" data-filter="react.js">React.js</span>
+                <span class="skills-chip" data-filter="node.js">Node.js</span>
+                <span class="skills-chip" data-filter="express.js">Express.js</span>
+                <span class="skills-chip" data-filter="mongodb">MongoDB</span>
+                <span class="skills-chip" data-filter="mysql">MySQL</span>
+            </div>
+            <div class="row g-4 project-grid">
+                <div class="col-lg-6 project-card" data-tags="node.js,express.js,mongodb">
+                    <div class="card-custom p-4 h-100 d-flex flex-column">
+                        <h3 class="h5">WanderLust – Airbnb-Style Web App</h3>
+                        <p class="text-muted">A production-ready platform enabling users to browse, book, and manage stays with secure authentication and Stripe payment integration.</p>
+                        <div class="mt-auto">
+                            <p class="mb-2"><strong>Stack:</strong> <span class="project-tag">MongoDB</span> <span class="project-tag">Express.js</span> <span class="project-tag">Node.js</span> <span class="project-tag">EJS</span> <span class="project-tag">HTML/CSS</span></p>
+                            <div class="d-flex gap-3 mt-3">
+                                <a href="#" class="btn btn-sm cta-button rounded-pill disabled-link" aria-disabled="true">Live Demo</a>
+                                <a href="https://github.com/pranavrajchoudhary/WanderLust" class="btn btn-sm cta-button rounded-pill" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 project-card" data-tags="node.js,express.js,mysql">
+                    <div class="card-custom p-4 h-100 d-flex flex-column">
+                        <h3 class="h5">Funki.com – Full-Stack eCommerce Web App</h3>
+                        <p class="text-muted">A complete CRUD-based online store with Stripe payment integration, an admin dashboard, a cart system, and user authentication.</p>
+                        <div class="mt-auto">
+                            <p class="mb-2"><strong>Stack:</strong> <span class="project-tag">Node.js</span> <span class="project-tag">Express.js</span> <span class="project-tag">MySQL2</span> <span class="project-tag">EJS</span></p>
+                            <div class="d-flex gap-3 mt-3">
+                                <a href="https://github.com/pranavrajchoudhary/Funki" class="btn btn-sm cta-button rounded-pill" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 project-card" data-tags="react.js,node.js,express.js,mongodb">
+                    <div class="card-custom p-4 h-100 d-flex flex-column">
+                        <h3 class="h5">EasPay – Payment Gateway Integration Web App</h3>
+                        <p class="text-muted">A mock payment system with checkout simulation and transaction status tracking. (In Progress)</p>
+                        <div class="mt-auto">
+                            <p class="mb-2"><strong>Stack:</strong> <span class="project-tag">React.js</span> <span class="project-tag">Node.js</span> <span class="project-tag">Express.js</span> <span class="project-tag">MongoDB</span></p>
+                            <div class="d-flex gap-3 mt-3">
+                                <a href="#" class="btn btn-sm cta-button rounded-pill disabled-link" aria-disabled="true">Live Demo (In Progress)</a>
+                                <a href="#" class="btn btn-sm cta-button rounded-pill disabled-link" aria-disabled="true">GitHub (Private)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 project-card" data-tags="react.js">
+                    <div class="card-custom p-4 h-100 d-flex flex-column">
+                        <h3 class="h5">TODO Ext. – Smart To-Do List Web Extension</h3>
+                        <p class="text-muted">A responsive React-based Chrome extension for real-time task management with dynamic rendering, filtering, and local state updates.</p>
+                        <div class="mt-auto">
+                            <p class="mb-2"><strong>Stack:</strong> <span class="project-tag">React.js</span> <span class="project-tag">JavaScript</span> <span class="project-tag">HTML5</span> <span class="project-tag">CSS3</span></p>
+                            <div class="d-flex gap-3 mt-3">
+                                <a href="https://github.com/pranavrajchoudhary/TODO-Ext." class="btn btn-sm cta-button rounded-pill" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section-padding">
+            <h2 class="text-center mb-5">Education</h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="timeline-item">
+                        <h3 class="h5 fw-bold">B.Tech CSE (AI & Data Science) <small class="text-muted fw-normal">| Jai Narain College Of Technology</small></h3>
+                        <p class="text-muted fst-italic">2023-27 | CGPA: 7.46</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="h5 fw-bold">XII (CBSE) <small class="text-muted fw-normal">| Jesus & Mary Academy</small></h3>
+                        <p class="text-muted fst-italic">2023 | 72%</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="h5 fw-bold">X (CBSE) <small class="text-muted fw-normal">| Bloom Public School</small></h3>
+                        <p class="text-muted fst-italic">2021 | 91%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="section-padding">
+            <h2 class="text-center mb-5">Achievements</h2>
+            <div class="card-custom p-4">
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><strong>Top 0.24% Rank:</strong> Achieved on Unstop (5,517 / 2.27M+).</li>
+                    <li class="mb-2"><strong>Top 400 (15K+):</strong> IEEE X DTU Hackathon – Team RIG Innovation.</li>
+                    <li class="mb-2"><strong>Python Expert Certified:</strong> from IIT Madras (Guvi).</li>
+                    <li class="mb-2"><strong>AI for India 2.0 (ML):</strong> Certified by IIT Madras & NSDC.</li>
+                    <li class="mb-2"><strong>1st Prize:</strong> Short Film Competition – JNCT (Director & Writer).</li>
+                    <li class="mb-2"><strong>2nd Prize:</strong> Eureka’24 Pitch – IIT Bombay.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding text-center">
+            <h2 class="mb-4">Contact</h2>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#" class="btn cta-button rounded-pill" onclick="copyEmailToClipboard()">
+                    <i class="fas fa-envelope me-2"></i>choudharypranav128@gmail.com
+                </a>
+                <a href="tel:+919801979197" class="btn cta-button rounded-pill">
+                    <i class="fas fa-phone me-2"></i>(+91) 9801979197
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast-container" role="alert" aria-live="polite">
+        <div id="emailToast" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body text-bg-secondary rounded">
+                    Email copied to clipboard!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+        const themeToggle = document.getElementById('theme-toggle');
+        const projectFilters = document.querySelectorAll('.project-filters .skills-chip');
+        const projectCards = document.querySelectorAll('.project-card');
+        const emailToast = document.getElementById('emailToast');
+        
+        // Dark/Light Theme Toggle
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', currentTheme);
+        themeToggle.querySelector('i').className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        themeToggle.setAttribute('aria-pressed', currentTheme === 'dark');
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.querySelector('i').className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            themeToggle.setAttribute('aria-pressed', newTheme === 'dark');
+        });
+
+        // Intersection Observer for active nav links
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const navLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    if (navLink) {
+                        navLink.classList.add('active');
+                    }
+                }
+            });
+        }, { rootMargin: '-50% 0px -50% 0px' });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Project Filtering
+        projectFilters.forEach(chip => {
+            chip.addEventListener('click', () => {
+                projectFilters.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                const filter = chip.dataset.filter;
+
+                projectCards.forEach(card => {
+                    const tags = card.dataset.tags;
+                    if (filter === 'all' || tags.includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Copy to Clipboard
+        function copyEmailToClipboard() {
+            navigator.clipboard.writeText('choudharypranav128@gmail.com').then(() => {
+                const toast = new bootstrap.Toast(emailToast);
+                toast.show();
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
